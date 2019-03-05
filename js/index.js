@@ -15,6 +15,15 @@ body.addEventListener("dblclick", function(event) {
   event.target.style.backgroundColor = "white";
 });
 
+
+// FUN BUS HEADER
+const headerText = document.querySelector("h1");
+console.log(headerText);
+
+headerText.addEventListener("mousemove", function (event){
+    event.target.style.fontFamily = 'Arial';
+})
+
 // NAVIGATION
 const navBackground = document.querySelector(".main-navigation");
 navBackground.addEventListener("click", function(event) {
