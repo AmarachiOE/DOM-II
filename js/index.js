@@ -3,8 +3,6 @@
 // .addEventListener works on individual items not an array
 // so extract items or use for loop
 
-
-
 // BODY
 const body = document.querySelector("body");
 console.log(body);
@@ -13,9 +11,9 @@ body.addEventListener("click", function(event) {
   event.target.style.backgroundColor = "#EFE4F1";
 });
 
-body.addEventListener('dblclick', function(event){
-    event.target.style.backgroundColor = 'white';
- });
+body.addEventListener("dblclick", function(event) {
+  event.target.style.backgroundColor = "white";
+});
 
 // NAVIGATION
 const navBackground = document.querySelector(".main-navigation");
@@ -48,73 +46,87 @@ for (let i = 0; i < navItems.length; i++) {
   });
 }
 
-
 // IMAGES
 const images = document.querySelectorAll("img");
 console.log(images); // 4 images
 
-for (let i = 0; i < images.length; i++){
-    images[i].addEventListener("mouseover", function(event){
-        event.target.style.opacity = 0.2;
-    })
+for (let i = 0; i < images.length; i++) {
+  images[i].addEventListener("mouseover", function(event) {
+    event.target.style.opacity = 0.2;
+  });
 
-    images[i].addEventListener("mouseout", function(event){
-        event.target.style.opacity = 1;
-    })
+  images[i].addEventListener("mouseout", function(event) {
+    event.target.style.opacity = 1;
+  });
 }
 
 // PARAGRAPHS
 const paragraphs = document.querySelectorAll("p");
 console.log(paragraphs);
 
-for (let i = 0; i < paragraphs.length; i++){
-    paragraphs[i].addEventListener("click", function(event){
-        alert(`You clicked ${event.target}`);
-        //event.target.style.color = 'white';
-        //event.target.style.backgroundColor = 'black';
-        event.stopPropagation(); // nested in body
-    })
+for (let i = 0; i < paragraphs.length; i++) {
+  paragraphs[i].addEventListener("select", function(event) {
+    console.log(`You clicked ${event.target}`);
+    //event.target.style.color = 'white';
+    //event.target.style.backgroundColor = 'black';
+    event.stopPropagation(); // nested in body
+  });
 }
 
 // BIG HEADERS
 const bigHeaders = document.querySelectorAll("h2");
 console.log(bigHeaders);
 
-for (let i = 0; i < bigHeaders.length; i++){
-    bigHeaders[i].addEventListener("wheel", function(event){
-        event.target.style.transform = "rotate(0.03turn)"
-        event.target.style.color = "#EB5F47";
+for (let i = 0; i < bigHeaders.length; i++) {
+  bigHeaders[i].addEventListener("wheel", function(event) {
+    event.target.style.transform = "rotate(0.03turn)";
+    event.target.style.color = "#EB5F47";
 
-        //event.target.style.color = 'white';
-        //event.target.style.backgroundColor = 'black';
-        event.stopPropagation(); // nested in body
-    })
+    //event.target.style.color = 'white';
+    //event.target.style.backgroundColor = 'black';
+    event.stopPropagation(); // nested in body
+  });
+}
+
+// LARGE CONTENT SECTIONS
+
+const sections = document.querySelectorAll("section");
+console.log(sections);
+
+for (let i = 0; i < sections.length; i++) {
+  sections[i].addEventListener("click", function(event) {
+    event.target.style.backgroundColor = "white";
+    event.stopPropagation();
+  });
 }
 
 
-    /*
-FIRST IMAGE
-const headerImg = document.querySelector(".intro img");
-console.log(headerImg);
+// DESTINATION SECTION HEADERS
+const destinations = document.querySelectorAll("h4");
+console.log(destinations);
 
-headerImg.addEventListener("mouseover", function(event) {
-  event.target.style.opacity = 0.5;
-});
+for (let i = 0; i < destinations.length; i++) {
+  destinations[i].addEventListener("mousedown", function(event) {
+    event.target.style.transform = "scale(1.5)";
+    event.target.style.color = "#EB5F47";
+    event.stopPropagation();
+  });
+
+  destinations[i].addEventListener("mouseup", function(event) {
+    event.target.style.transform = "scale(1)";
+    event.target.style.color = "black";
+    event.stopPropagation();
+  });
+}
+
+// BUTTON
+const buttons = document.querySelectorAll(".btn");
+console.log(buttons);
+
+for (let i = 0; i < buttons.length; i++) {
+  buttons[i].addEventListener("mouseover", function(event) {
+    TweenMax.to(".btn", 2, { x: 100});
+  });
+}
 
 
-3 CONTENT IMAGES
-const contentImg = document.querySelectorAll("section img");
-console.log(contentImg);
-
- 
-
-
-const container = document.querySelector('.container');
-container.addEventListener('click', function(eventObject){
-    console.log(`Event Target: ${eventObject.target}`);
-    console.log(`Current Target: ${eventObject.currentTarget}`);
-    eventObject.target.style.color = "red";
-    eventObject.currentTarget.style.color = "red";
-});
-
-*/
